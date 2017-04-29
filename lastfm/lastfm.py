@@ -191,6 +191,11 @@ Will remember your username after setting one. [p]lastfm last @username will bec
                     artist = track['artist']['#text']
                     song = track['name']
                     url = track['url']
+                    
+                    # Replace ( and ) with a URL friendly one.
+                    url = url.replace("(", "%28")
+                    url = url.replace(")", "%29")
+                    
                     if i < 10:
                         l += '`{}`\t  **[{}]({})** by **{}**\n'.format(str(i), song, url, artist)
                     elif i > 10:
@@ -239,6 +244,11 @@ Will remember your username after setting one. [p]lastfm last @username will bec
                     artist = track['artist']['name']
                     song = track['name']
                     url = track['url']
+
+                    # Replace ( and ) with a URL friendly one.
+                    url = url.replace("(", "%28")
+                    url = url.replace(")", "%29")
+
                     plays = track['playcount']
                     if i < 10:
                         l += '`{}`\t  **[{}]({})** by **{}** ({} plays)\n'.format(str(i), song, url, artist, plays)
@@ -287,6 +297,11 @@ Will remember your username after setting one. [p]lastfm last @username will bec
                 for i, artist in enumerate(data['topartists']['artist'], 1):
                     artist_a = artist['name']
                     url = artist['url']
+
+                    # Replace ( and ) with a URL friendly one.
+                    url = url.replace("(", "%28")
+                    url = url.replace(")", "%29")
+
                     plays = artist['playcount']
                     if i < 10:
                         l += '`{}`\t  **[{}]({})** ({} plays)\n'.format(str(i), artist_a, url, plays)
@@ -337,6 +352,11 @@ Will remember your username after setting one. [p]lastfm last @username will bec
                     albums = album['name']
                     artist = album['artist']['name']
                     url = album['url']
+                    
+                    # Replace ( and ) with a URL friendly one.
+                    url = url.replace("(", "%28")
+                    url = url.replace(")", "%29")
+                    
                     plays = album['playcount']
                     if i < 10:
                         l += '`{}`\t  **[{}]({})** by **({})** ({} plays)\n'.format(str(i), albums, url, artist, plays)
